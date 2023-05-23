@@ -21,13 +21,18 @@ export const Login = () => {
 
             console.log("email a enviar: ", email)
             console.log("password a enviar: ", password)
+            console.log("Backend URL:", process.env.BACKEND_URL);
 
 
             const response = await fetch(process.env.BACKEND_URL + "/login", {
-                method: "GET",
+                method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
+                body: JSON.stringify({
+                    "email": email,
+                    "password": password
+                }),
             });
 
             if (response.ok) {
@@ -39,6 +44,8 @@ export const Login = () => {
 
                 localStorage.setItem("miTokenJWT", token);
                 localStorage.setItem("loggedUserEmail", email);
+
+                console.log(token);
 
                 setLoginSuccess(true);
 
