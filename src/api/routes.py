@@ -118,6 +118,7 @@ def get_user_cats():
 
     # Ejercicio 5: COMPLETAR
     # Busca todos los gatos asociados al usuario actual y añádelos a cats_data
+    
 
 
     return jsonify(cats_data), 200

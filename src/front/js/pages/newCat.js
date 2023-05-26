@@ -9,6 +9,8 @@ export const NewCat = () => {
 
   const navigate = useNavigate();
 
+  
+  
   const token = localStorage.getItem("miTokenJWT");
 
   if (!token) {
@@ -22,14 +24,17 @@ export const NewCat = () => {
 
     // Ejercicio 4
 
+   
+
     const response = await fetch(process.env.BACKEND_URL + "/api/cat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
       },
       body: JSON.stringify({ name, imageUrl }),
     });
-
+    
     const data = await response.json();
 
     if (response.ok) {
