@@ -119,7 +119,7 @@ def get_user_cats():
     # Ejercicio 5: COMPLETAR
     # Busca todos los gatos asociados al usuario actual y añádelos a cats_data
 
-    cats = Cat.query.folter_by(user_id=curre_user_id ).all()
+    cats = Cat.query.filter_by(user_id=curre_user_id ).all()
 
     for cat in cats:
         cat_data = {
